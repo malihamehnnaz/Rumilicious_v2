@@ -11,250 +11,167 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="overflow-hidden bg-white">
+    <div className="overflow-hidden bg-dark">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070" 
-            alt="Restaurant Ambience" 
-            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2074" 
+            alt="Chef Plating" 
+            className="w-full h-full object-cover scale-110 animate-slow-zoom opacity-90"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-white/20 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-transparent to-dark/80 pointer-events-none"></div>
         </div>
         
-        <div className={`relative z-10 text-center text-white container-custom max-w-4xl px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight">
+        <div className={`relative z-10 text-center text-white w-full px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-xs font-bold tracking-[0.6em] text-primary-500 mb-8 block uppercase animate-fade-in-up">The Art of Gastronomy</span>
+          <h1 className="text-7xl md:text-[10rem] font-serif font-bold mb-8 leading-none tracking-tighter animate-fade-in-up drop-shadow-[0_0_30px_rgba(197,160,40,0.3)] mx-auto" style={{ animationDelay: '0.2s' }}>
             RUMILICIOUS
           </h1>
-          <p className="text-xl md:text-2xl mb-10 font-light max-w-2xl mx-auto leading-relaxed text-gray-100">
-            A culinary journey where tradition meets modern elegance. Experience the art of fine dining in the heart of the city.
+          <p className="text-lg md:text-2xl mb-12 font-light max-w-3xl mx-auto leading-relaxed text-neutral-200 tracking-wide animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            Where every ingredient tells a story and every plate is a masterpiece. Experience the pinnacle of Persian-inspired fine dining.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <Link 
               to="/menu" 
-              className="px-8 py-4 bg-white text-neutral-900 text-lg font-medium hover:bg-neutral-100 transition-colors min-w-[200px]"
+              className="group relative px-12 py-5 bg-primary-500 text-white text-xs font-bold tracking-[0.3em] rounded-full overflow-hidden transition-all hover:scale-105 shadow-2xl shadow-primary-500/20"
             >
-              View Menus
+              <span className="relative z-10">EXPLORE THE MENU</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </Link>
             <Link 
               to="/contact" 
-              className="px-8 py-4 border-2 border-white text-white text-lg font-medium hover:bg-white hover:text-neutral-900 transition-all min-w-[200px]"
+              className="px-12 py-5 border border-white/30 text-white text-xs font-bold tracking-[0.3em] rounded-full hover:bg-white hover:text-dark transition-all hover:scale-105 backdrop-blur-md"
             >
-              Book a Table
+              RESERVE A TABLE
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
+          <div className="w-px h-24 bg-gradient-to-b from-primary-500 via-primary-500/50 to-transparent"></div>
         </div>
       </section>
 
       {/* Introduction Section */}
-      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={philosophyBg} 
-            alt="Philosophy Background" 
-            className="w-full h-full object-cover opacity-40"
-          />
-        </div>
-
-        <div className="relative z-10 container-custom max-w-4xl text-center">
-          <h2 className="text-sm font-bold tracking-[0.2em] text-primary-600 mb-6 uppercase">Our Philosophy</h2>
-          <p className="text-3xl md:text-5xl font-serif leading-tight text-neutral-900 mb-8">
-            "We believe that food is more than just sustenance. It is a language that speaks of culture, passion, and the joy of gathering together."
-          </p>
-          <div className="w-24 h-1 bg-neutral-200 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Sourcing the finest local ingredients, our chefs craft dishes that honor traditional recipes while embracing contemporary techniques. Every plate is a masterpiece, designed to delight your senses.
-          </p>
-          <div className="mt-12">
-            <Link to="/about" className="text-primary-600 font-medium hover:text-primary-700 border-b-2 border-primary-600 pb-1 transition-colors">
-              Read Our Story
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Images Grid */}
-      <section className="h-[80vh] min-h-[600px]">
-        <div className="relative group overflow-hidden h-full">
-          <img 
-            src="https://images.unsplash.com/photo-1502301103665-0b95cc738daf?q=80&w=1964" 
-            alt="Fine Dining" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <h3 className="text-4xl font-serif mb-4">The Kitchen</h3>
-              <p className="text-lg mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Seasonal ingredients, timeless recipes</p>
-              <Link to="/menu" className="inline-block border border-white px-6 py-3 hover:bg-white hover:text-black transition-colors">
-                View Food
+      <section className="relative py-20 md:py-24 bg-dark overflow-hidden">
+        <div className="container-custom max-w-6xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              {/* Video Only - Full Size in Philosophy Section */}
+              <div className="relative z-10 rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl border border-white/5 animate-fade-in-up bg-dark">
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-full h-full object-cover opacity-90"
+                >
+                  <source src="/New folder/WhatsApp Video 2025-12-19 at 9.35.01 AM.mp4" type="video/mp4" />
+                </video>
+              </div>
+              {/* Decorative Gold Ring */}
+              <div className="absolute -top-12 -left-12 w-48 h-48 border border-primary-500/10 rounded-full animate-spin-slow"></div>
+            </div>
+            
+            <div className="text-left animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <span className="text-xs font-bold tracking-[0.4em] text-primary-500 mb-8 block uppercase">Our Philosophy</span>
+              <h2 className="text-5xl md:text-7xl font-serif leading-[1.1] text-white mb-10 italic">
+                "A symphony of flavors, <br/>crafted with soul."
+              </h2>
+              <p className="text-xl text-neutral-400 leading-relaxed mb-12 font-light tracking-wide">
+                At Rumilicious, we believe dining is more than just a meal—it's a sensory journey. Our chefs blend ancient Persian traditions with modern culinary innovation, sourcing only the most exceptional local ingredients to create an unforgettable experience.
+              </p>
+              <Link to="/about" className="group inline-flex items-center gap-6 text-primary-500 font-bold tracking-[0.3em] text-xs uppercase">
+                <div className="w-12 h-px bg-primary-500 group-hover:w-20 transition-all duration-500"></div>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Animated Food Gallery */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-[0.2em] text-primary-600 mb-4 uppercase">A Feast for the Eyes</h2>
-          <h3 className="text-4xl md:text-5xl font-serif font-bold text-neutral-900">Culinary Masterpieces</h3>
-        </div>
-        
-        <div className="relative w-full">
-          <div className="flex w-[700%] animate-scroll hover:[animation-play-state:paused]" style={{ animationDuration: '150s' }}>
-            {/* First Set */}
-            <div className="flex w-1/2 justify-around gap-6 px-3">
-              {[
-                "/New folder/g.jpeg",
-                "/New folder/WhatsApp Imafge 2025-12-17 at 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 aggt 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.10 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.11 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.14ff AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7ff.38.13 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.46 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.47 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.4gg7 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.gg48 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8gg.00.gg48 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at gAM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 atggg 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 atv 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-1ggg7 at 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-1gg2-17 at 8.00.48 AM.jpeg",
-                "/New folder/WhatsApp Imagfe 2025-12-17 at 7.38.13 AM.jpeg"
-              ].map((src, index) => (
-                <div key={index} className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group cursor-pointer">
-                  <img 
-                    src={src} 
-                    alt={`Gallery Image ${index + 1}`} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
-                </div>
-              ))}
-            </div>
-            {/* Duplicate Set for Loop */}
-            <div className="flex w-1/2 justify-around gap-6 px-3">
-              {[
-                "/New folder/g.jpeg",
-                "/New folder/WhatsApp Imafge 2025-12-17 at 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 aggt 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.10 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.11 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7.38.14ff AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 7ff.38.13 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.46 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.47 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.4gg7 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8.00.gg48 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at 8gg.00.gg48 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 at gAM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 atggg 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-17 atv 7.38.12 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-12-1ggg7 at 8.00.49 AM.jpeg",
-                "/New folder/WhatsApp Image 2025-1gg2-17 at 8.00.48 AM.jpeg",
-                "/New folder/WhatsApp Imagfe 2025-12-17 at 7.38.13 AM.jpeg"
-              ].map((src, index) => (
-                <div key={`dup-${index}`} className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group cursor-pointer">
-                  <img 
-                    src={src} 
-                    alt={`Gallery Image ${index + 1}`} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-           <img 
-            src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=2070" 
-            // src={reviewsBg} // Uncomment this line and remove the line above after adding the image file
-            alt="Restaurant Ambience" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-neutral-50/55 backdrop-blur-sm"></div>
+      {/* Elegant Gallery Section */}
+      <section className="py-20 bg-dark relative overflow-hidden border-t border-white/10">
+        <div className="container-custom mb-16 text-center animate-fade-in-up">
+          <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-6 block uppercase">Visual Excellence</span>
+          <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8">The Gallery</h2>
+          <div className="w-24 h-px bg-primary-500/30 mx-auto"></div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
-        </div>
-
-        <div className="container-custom max-w-7xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-sm font-bold tracking-[0.2em] text-primary-600 mb-3 uppercase">Testimonials</h2>
-            <h3 className="text-4xl md:text-5xl font-serif font-bold text-neutral-900">Guest Experiences</h3>
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "/New folder/Gemini_Generated_Image_ig7qsrig7qsrig7q.png",
+              "/New folder/WhatsApp Imafge 2025-12-17 at 7.38.12 AM.jpeg",
+              "/New folder/WhatsApp Image 2025-1gg2-17 at 8.00.48 AM.jpeg",
+              "/New folder/WhatsApp Image 2025-12-1ggg7 at 8.00.49 AM.jpeg"
+            ].map((img, i) => (
+              <div key={i} className="relative group aspect-square rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm transition-all duration-500 hover:border-primary-500/50">
+                <img 
+                  src={img} 
+                  alt={`Gallery ${i + 1}`} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              </div>
+            ))}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="mt-16 text-center">
+            <Link to="/gallery" className="group relative inline-flex items-center gap-6 px-12 py-4 bg-white/5 border border-white/10 text-white text-[10px] font-bold tracking-[0.4em] rounded-full overflow-hidden transition-all hover:border-primary-500/50">
+              <span className="relative z-10">EXPLORE FULL GALLERY</span>
+              <div className="absolute inset-0 bg-primary-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Background Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary-500/5 blur-[150px] rounded-full pointer-events-none"></div>
+      </section>
+
+      {/* Events Sneak Peek Section */}
+      <section className="pt-20 pb-0 bg-dark relative overflow-hidden border-t border-white/10">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+            <div className="animate-fade-in-up">
+              <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-6 block uppercase">Mark Your Calendar</span>
+              <h2 className="text-5xl md:text-7xl font-serif font-bold text-white">Upcoming Events</h2>
+            </div>
+            <Link to="/events" className="group flex items-center gap-4 text-primary-500 font-bold tracking-[0.3em] text-xs uppercase animate-fade-in-up">
+              <span>VIEW ALL EVENTS</span>
+              <div className="w-12 h-px bg-primary-500 group-hover:w-20 transition-all duration-500"></div>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
-                title: "Fabulous restaurant",
-                text: "OMG, sensational vegan Persian food and a hostess who just made us feel so welcome. From the to die for falafel to baked eggplant, Persian curries with rice... We will be back!",
-                author: "Stefan",
-                source: "Google Review",
-                initial: "S",
-                color: "bg-blue-100 text-blue-600"
+                title: "Christmas Lunch",
+                date: "DEC 25",
+                image: "/New folder/merry_christmas_with_red_balls_and_green_leaves_in_white_background_hd_merry_christmas.jpg",
+                desc: "A festive feast featuring traditional roasted turkey, ham, and seasonal delights."
               },
               {
-                title: "Excellent food & service",
-                text: "Carefully considered recommendations and adaptions for those with nut allergies and a beautiful sharing of cultural influences and history. Great coffee too!",
-                author: "Cassandra",
-                source: "Google Review",
-                initial: "C",
-                color: "bg-rose-100 text-rose-600"
-              },
-              {
-                title: "Highly recommend",
-                text: "This falafel stack is the most delicious thing I have ever had. I went there with colleagues and everyone loved what they called for. The presentation was on point, very impressive.",
-                author: "Jinal",
-                source: "Google Review",
-                initial: "J",
-                color: "bg-amber-100 text-amber-600"
+                title: "New Year's Eve",
+                date: "DEC 31",
+                image: "/New folder/20231231-MBTA_GCiL9v8XIAAQdGa - Copy.jpg",
+                desc: "Celebrate the arrival of 2026 with live music and a curated Persian-inspired menu."
               }
-            ].map((review, index) => (
-              <div 
-                key={index} 
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-neutral-100 flex flex-col h-full"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 rounded-full ${review.color} flex items-center justify-center font-serif font-bold text-xl`}>
-                    {review.initial}
-                  </div>
-                  <div>
-                    <div className="font-bold text-neutral-900">{review.author}</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wider">{review.source}</div>
-                  </div>
-                  <div className="ml-auto text-yellow-400 flex gap-1 text-sm">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i}>★</span>
-                    ))}
-                  </div>
+            ].map((event, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-dark/40 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 </div>
-                
-                <div className="mb-4">
-                  <h4 className="text-lg font-bold font-serif text-neutral-800 mb-2">{review.title}</h4>
-                  <p className="text-gray-600 leading-relaxed italic">{review.text}</p>
+                <div className="p-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-3xl font-serif font-bold text-white group-hover:text-primary-500 transition-colors">{event.title}</h3>
+                    <span className="text-primary-500 font-bold tracking-widest text-sm">{event.date}</span>
+                  </div>
+                  <p className="text-neutral-400 font-light leading-relaxed mb-8">{event.desc}</p>
+                  <Link to="/events" className="inline-block px-8 py-3 border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] text-white hover:bg-white hover:text-dark transition-all">
+                    LEARN MORE
+                  </Link>
                 </div>
               </div>
             ))}
@@ -262,23 +179,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="py-24 bg-neutral-900 text-white text-center">
-        <div className="container-custom max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6">Join Our Community</h2>
-          <p className="text-gray-400 mb-10 text-lg">Subscribe to receive updates on special events, seasonal menu changes, and exclusive offers.</p>
-          <form className="flex flex-col sm:flex-row gap-4">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-1 px-6 py-4 bg-neutral-800 border border-neutral-700 text-white focus:outline-none focus:border-primary-600 transition-colors"
-            />
-            <button type="submit" className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors">
-              Subscribe
-            </button>
-          </form>
+      {/* Reviews Section */}
+      <section className="relative pt-0 pb-20 overflow-hidden bg-dark">
+        {/* Background Image with Parallax-like effect */}
+        <div className="absolute inset-0 z-0">
+           <img 
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2074" 
+            alt="Restaurant Ambience" 
+            className="w-full h-full object-cover opacity-10 scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/95 to-dark"></div>
+        </div>
+
+        <div className="container-custom max-w-7xl relative z-10">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-4 block uppercase">Testimonials</span>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-white">Guest Experiences</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {[
+              {
+                title: "Fabulous restaurant",
+                text: "OMG, sensational vegan Persian food and a hostess who just made us feel so welcome. From the to die for falafel to baked eggplant, Persian curries with rice... We will be back!",
+                author: "Stefan",
+                source: "Google Review",
+                initial: "S",
+                color: "bg-primary-500/10 text-primary-500"
+              },
+              {
+                title: "Excellent food & service",
+                text: "Carefully considered recommendations and adaptions for those with nut allergies and a beautiful sharing of cultural influences and history. Great coffee too!",
+                author: "Cassandra",
+                source: "Google Review",
+                initial: "C",
+                color: "bg-primary-500/10 text-primary-500"
+              },
+              {
+                title: "Highly recommend",
+                text: "This falafel stack is the most delicious thing I have ever had. I went there with colleagues and everyone loved what they called for. The presentation was on point, very impressive.",
+                author: "Jinal",
+                source: "Google Review",
+                initial: "J",
+                color: "bg-primary-500/10 text-primary-500"
+              }
+            ].map((review, index) => (
+              <div 
+                key={index} 
+                className="group relative bg-neutral-900/40 backdrop-blur-xl p-12 rounded-[2.5rem] border border-white/5 hover:border-primary-500/30 transition-all duration-700 flex flex-col h-full"
+              >
+                <div className="absolute top-0 right-0 p-8 text-primary-500/10 text-8xl font-serif pointer-events-none">"</div>
+                
+                <div className="flex items-center gap-6 mb-10">
+                  <div className={`w-16 h-16 rounded-2xl ${review.color} flex items-center justify-center font-serif font-bold text-2xl border border-primary-500/20 transform -rotate-6 group-hover:rotate-0 transition-transform duration-500`}>
+                    {review.initial}
+                  </div>
+                  <div>
+                    <div className="font-bold text-white text-lg tracking-wide">{review.author}</div>
+                    <div className="text-[10px] text-neutral-500 uppercase tracking-[0.3em]">{review.source}</div>
+                  </div>
+                </div>
+                
+                <div className="flex-grow">
+                  <div className="flex gap-1 text-primary-500 text-xs mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>★</span>
+                    ))}
+                  </div>
+                  <h4 className="text-2xl font-bold font-serif text-white mb-6 group-hover:text-primary-500 transition-colors">{review.title}</h4>
+                  <p className="text-neutral-400 leading-relaxed italic font-light text-lg">"{review.text}"</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
     </div>
   );
 }

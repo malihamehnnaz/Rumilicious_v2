@@ -1,122 +1,128 @@
 export default function Events() {
   const events = [
     {
-      id: 2,
-      title: "Christmas Lunch at Rumilicious!",
-      date: "December 25",
-      time: "11:30am - 4:00pm",
-      description: "Join us for a beautiful Christmas Lunch. Celebrate the season with your loved ones in our warm and festive atmosphere.",
-      highlights: ["Roasted turkey", "Roasted ham", "Organic vegetables", "Christmas pudding"],
-      image: "/New folder/WhatsApp%20Image%202025-12-17%20at%207.38.10%20AM.jpeg",
-      cta: "Call (02) 9211 7706 to Book"
+      id: 1,
+      title: "Christmas Lunch",
+      date: "Dec 25",
+      time: "12:00 PM - 4:00 PM",
+      description: "Celebrate Christmas with a luxurious festive lunch at Rumilicious.",
+      highlights: [
+        "Entrée: Prawn Cocktail, Cauliflower",
+        "Main: Roasted Turkey & Lamb Leg",
+        "Roasted Seasonal Vegetables",
+        "Dessert: Pavlova Sugar Candy floss"
+      ],
+      image: "/New folder/merry_christmas_with_red_balls_and_green_leaves_in_white_background_hd_merry_christmas.jpg",
+      cta: "Call (02) 9211 7706"
     },
     {
-      id: 1,
-      title: "New Year’s Eve",
-      date: "December 31",
-      time: "Evening Celebration",
-      description: "Celebrate New Year’s Eve at Rumilicious 🎉 Tickets are almost sold out — please book now!",
+      id: 2,
+      title: "New Year’s Celebration",
+      date: "Dec 31",
+      time: "7:00 PM - Late",
+      description: "Ring in the new year with a vibrant celebration and a spectacular festive menu.",
       highlights: [
-        "Appetizers: Hummus trio, Eggplant dip, Falafel, Cauliflower",
-        "Mains: Chicken with barberry rice & pistachios",
-        "Persian kebab Lamb and Chicken",
-        "Dessert: Persian Ice cream"
+        "Entrée: Prawn Cocktail, Cauliflower",
+        "Main: Roasted Turkey & Lamb Leg",
+        "Roasted Seasonal Vegetables",
+        "Dessert: Pavlova Sugar Candy floss"
       ],
-      price: "$120 PP",
-      image: "/New folder/WhatsApp%20Image%202025-12-17%20at%208.00.46%20AM.jpeg",
-      cta: "Call (02) 9211 7706 to Book"
+      image: "/New folder/20231231-MBTA_GCiL9v8XIAAQdGa - Copy.jpg",
+      cta: "Call (02) 9211 7706"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=80" 
-            alt="Events and Celebrations"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        <div className="relative z-10 text-center text-white px-4 container-custom">
-          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight">Events</h1>
-          <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-8 text-gray-100">
-            Celebrate your special moments with us
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-dark">
+      <main id="events" className="py-32 px-4">
+        <div className="container-custom">
+          <div className="text-center mb-24">
+            <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-4 block uppercase">Calendar</span>
+            <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">Upcoming Events</h2>
+            <div className="w-24 h-px bg-primary-500/50 mx-auto"></div>
+          </div>
 
-      <div className="py-20 px-4">
-        <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="text-4xl font-serif font-bold mb-16 text-center text-neutral-900">Upcoming Events</h2>
-        
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event) => (
-              <div key={event.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-100 hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                {/* Image Section */}
-                <div className="relative h-64">
+          <div className="flex flex-col gap-16">
+            {events.map((event, idx) => (
+              <article key={event.id} className="bg-neutral-900/50 rounded-3xl border border-neutral-800/50 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 backdrop-blur-sm group">
+                <div className="lg:col-span-5 h-80 lg:h-auto relative overflow-hidden bg-neutral-900">
                   <img 
                     src={event.image} 
                     alt={event.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" 
                   />
-                  <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 text-sm font-bold rounded-full shadow-md">
+                  <div className="absolute top-6 left-6 bg-primary-500 text-white text-xs px-4 py-2 rounded-full font-bold tracking-widest uppercase shadow-xl">
                     {event.date}
                   </div>
                   {event.price && (
-                    <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 text-sm font-bold rounded-full backdrop-blur-sm">
+                    <div className="absolute bottom-6 right-6 bg-dark/80 backdrop-blur-md text-white text-sm px-4 py-2 rounded-full font-bold border border-neutral-700">
                       {event.price}
                     </div>
                   )}
                 </div>
 
-                {/* Content Section */}
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-2xl font-serif font-bold mb-2 text-neutral-900">
-                    {event.title}
-                  </h3>
-                  <p className="text-primary-600 font-medium mb-4 flex items-center">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {event.time}
-                  </p>
-                  
-                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                <div className="lg:col-span-7 p-10 lg:p-16 flex flex-col justify-center">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                    <div>
+                      <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 group-hover:text-primary-500 transition-colors">
+                        {event.title}
+                      </h3>
+                      <p className="text-primary-500 text-xs font-bold tracking-[0.2em] uppercase">
+                        {event.time} • Rumilicious
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-neutral-400 text-lg font-light leading-relaxed mb-10 tracking-wide">
                     {event.description}
                   </p>
 
-                  <div className="bg-neutral-50 p-4 rounded-lg mb-6">
-                    <h4 className="font-bold text-sm text-neutral-900 mb-2">Menu Highlights:</h4>
-                    <ul className="grid grid-cols-1 gap-2 text-sm text-gray-600">
-                      {event.highlights.map((item, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-primary-600 mr-2 mt-1">•</span> 
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                    {event.highlights.map((h, i) => (
+                      <div key={i} className="flex items-center gap-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary-500"></div>
+                        <p className="text-neutral-300 font-light">{h}</p>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="mt-auto pt-4 border-t border-neutral-100">
+                  <div className="flex flex-wrap items-center gap-6">
                     <a 
                       href="tel:0292117706" 
-                      className="block w-full py-3 bg-neutral-900 text-white font-bold rounded-lg hover:bg-primary-600 transition-colors text-center text-sm uppercase tracking-widest"
+                      className="inline-flex items-center px-10 py-4 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-all duration-300 uppercase tracking-[0.2em] text-xs font-bold shadow-xl shadow-primary-500/20"
                     >
                       Book Now
                     </a>
-                    <p className="text-center text-xs text-gray-400 mt-2">
-                      Call to secure your spot
-                    </p>
+                    <a 
+                      href="/contact" 
+                      className="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-[0.2em] border-b border-neutral-800 hover:border-primary-500 pb-1"
+                    >
+                      Inquire Privately
+                    </a>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Private Dining CTA */}
+      <section className="py-32 bg-neutral-900/30 border-t border-neutral-900">
+        <div className="container-custom text-center">
+          <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-6 block uppercase">Bespoke Experiences</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-8">Private Dining & Events</h2>
+          <p className="text-xl text-neutral-400 font-light max-w-2xl mx-auto mb-12 tracking-wide leading-relaxed">
+            From intimate celebrations to corporate gatherings, we provide the perfect setting for your most important moments.
+          </p>
+          <a 
+            href="/contact" 
+            className="inline-flex items-center px-12 py-5 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-500 uppercase tracking-[0.3em] text-xs font-bold rounded-full"
+          >
+            Request a Proposal
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

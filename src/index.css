@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #fdf8f6;
-  --color-primary-100: #f2e8e5;
-  --color-primary-200: #eaddd7;
-  --color-primary-300: #e0cec7;
-  --color-primary-400: #d2bab0;
-  --color-primary-500: #bfa094;
-  --color-primary-600: #a18072;
-  --color-primary-700: #977669;
-  --color-primary-800: #846358;
-  --color-primary-900: #43302b;
-  --color-primary-950: #1a110f;
+  --color-primary-50: #fdfcf6;
+  --color-primary-100: #f9f4e1;
+  --color-primary-200: #f1e6bc;
+  --color-primary-300: #e6d18d;
+  --color-primary-400: #d9b65d;
+  --color-primary-500: #c5a028;
+  --color-primary-600: #a6821e;
+  --color-primary-700: #85641c;
+  --color-primary-800: #6d521d;
+  --color-primary-900: #5d461e;
+  --color-primary-950: #36270d;
+  
+  --color-gold: #D4AF37;
+  --color-dark: #0a0a0a;
+  --color-dark-lighter: #1a1a1a;
 }
 
 @layer components {
@@ -20,11 +24,19 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 shadow-lg hover:shadow-primary-500/20;
+  }
+
+  .btn-outline {
+    @apply border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-32;
   }
 }
 
@@ -34,30 +46,30 @@
   }
   
   body {
-    @apply text-neutral-900 antialiased bg-white;
+    @apply text-neutral-200 antialiased bg-dark;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif text-white tracking-tight;
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a18072;
-  border-radius: 4px;
+  background: #c5a028;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #846358;
+  background: #a6821e;
 }
 
 @keyframes scroll {
@@ -75,4 +87,46 @@
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1.2s ease-out forwards;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

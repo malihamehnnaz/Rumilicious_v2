@@ -2,9 +2,10 @@ export default function Menu() {
   const menuCategories = [
     {
       title: 'Breakfast Menu',
+      layout: 'vertical',
       images: [
-        "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80",
-        "https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&q=80"
+        "https://images.unsplash.com/photo-1533089862017-5614ec87e284?w=800&q=80",
+        "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80"
       ],
       items: [
         {
@@ -48,7 +49,7 @@ export default function Menu() {
       title: 'Lunch Menu',
       images: [
         "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
-        "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80"
+        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80"
       ],
       items: [
         {
@@ -70,10 +71,12 @@ export default function Menu() {
     },
     {
       title: 'Kebabs',
+      layout: 'vertical',
+      customHeight: 'h-[350px]',
       subtitle: 'Served with Rice or Salad. Tomato and Chilli on the side.',
       images: [
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
-        "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80"
+        "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80",
+        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80"
       ],
       items: [
         {
@@ -111,8 +114,8 @@ export default function Menu() {
     {
       title: 'Pasta Menu',
       images: [
-        "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80",
-        "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&q=80"
+        "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80",
+        "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=800&q=80"
       ],
       items: [
         {
@@ -135,27 +138,28 @@ export default function Menu() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-dark">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80" 
             alt="Restaurant food"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-dark/30 via-transparent to-dark/70"></div>
         </div>
         <div className="relative z-10 text-center text-white px-4 container-custom">
+          <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-6 block uppercase">Culinary Excellence</span>
           <h1 className="text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight">Our Menu</h1>
-          <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-8 text-gray-100">
-            Experience culinary excellence with our carefully crafted dishes
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto text-neutral-300 tracking-wide mb-10">
+            Experience culinary excellence with our carefully crafted dishes.
           </p>
           <a 
             href="/New folder/Rumilicious_FoodMenu_NOV25-V2.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 border border-white text-white hover:bg-white hover:text-neutral-900 transition-all duration-300 uppercase tracking-widest text-sm font-medium"
+            className="inline-flex items-center px-10 py-4 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-all duration-300 uppercase tracking-[0.2em] text-xs font-bold shadow-xl shadow-primary-500/20"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -167,48 +171,50 @@ export default function Menu() {
 
       {/* Menu Categories */}
       {menuCategories.map((category, categoryIndex) => (
-        <section key={categoryIndex} className={`py-20 px-4 ${categoryIndex % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}`}>
-          <div className="max-w-7xl mx-auto">
+        <section key={categoryIndex} className={`py-32 px-4 ${categoryIndex % 2 === 0 ? 'bg-dark' : 'bg-neutral-900/30'}`}>
+          <div className="container-custom">
             {/* Category Title */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-neutral-900 mb-4">
+            <div className="text-center mb-24 animate-fade-in-up">
+              <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-4 block uppercase">Selection</span>
+              <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
                 {category.title}
               </h2>
               {category.subtitle && (
-                <p className="text-lg text-gray-600 italic mb-4">{category.subtitle}</p>
+                <p className="text-lg text-neutral-400 italic mb-8 font-light tracking-wide">{category.subtitle}</p>
               )}
-              <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
+              <div className="w-24 h-px bg-primary-500/50 mx-auto"></div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
               {/* Images Section - Alternating order based on index */}
-              <div className={`grid grid-cols-2 gap-4 ${categoryIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <img 
-                  src={category.images[0]} 
-                  alt={`${category.title} ambience`}
-                  className="w-full h-64 object-cover rounded-lg shadow-md mt-8 transform hover:scale-105 transition-transform duration-500"
-                />
-                <img 
-                  src={category.images[1]} 
-                  alt={`${category.title} detail`}
-                  className="w-full h-64 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-500"
-                />
+              <div className={`grid ${category.layout === 'vertical' ? 'grid-cols-1' : 'grid-cols-2'} gap-6 animate-fade-in-up ${categoryIndex % 2 === 1 ? 'lg:order-2' : ''}`} style={{ animationDelay: '0.2s' }}>
+                {category.images.map((img, imgIndex) => (
+                  <div key={imgIndex} className={`relative group overflow-hidden rounded-2xl ${category.layout === 'vertical' ? '' : (imgIndex === 0 ? 'mt-12' : '')}`}>
+                    <img 
+                      src={img} 
+                      alt={`${category.title} ${imgIndex + 1}`}
+                      className={`w-full ${category.customHeight ? category.customHeight : (category.layout === 'vertical' ? 'h-[500px]' : 'h-[400px]')} object-cover transform group-hover:scale-110 transition-transform duration-700`}
+                    />
+                    <div className="absolute inset-0 bg-dark/20 group-hover:bg-dark/0 transition-colors duration-500"></div>
+                  </div>
+                ))}
               </div>
 
               {/* Menu Items List */}
-              <div className={`${categoryIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="space-y-8">
+              <div className={`animate-fade-in-up ${categoryIndex % 2 === 1 ? 'lg:order-1' : ''}`} style={{ animationDelay: '0.4s' }}>
+                <div className="space-y-12">
                   {category.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="border-b border-neutral-200 pb-6 last:border-0 group">
-                      <div className="flex justify-between items-baseline mb-2">
-                        <h3 className="text-xl font-serif font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">
+                    <div key={itemIndex} className="group">
+                      <div className="flex justify-between items-baseline mb-3">
+                        <h3 className="text-2xl font-serif font-bold text-white group-hover:text-primary-500 transition-colors duration-300">
                           {item.name}
                         </h3>
-                        <span className="text-lg font-bold text-primary-600 ml-4">
+                        <div className="flex-grow mx-4 border-b border-neutral-800 border-dotted"></div>
+                        <span className="text-xl font-bold text-primary-500">
                           {item.price}
                         </span>
                       </div>
-                      <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                      <p className="text-neutral-400 leading-relaxed font-light tracking-wide">
                         {item.description}
                       </p>
                     </div>
@@ -221,45 +227,29 @@ export default function Menu() {
       ))}
 
       {/* Call to Action */}
-      <section className="relative py-32 px-4">
+      <section className="relative py-40 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80" 
             alt="Restaurant interior"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-dark/40"></div>
         </div>
-        <div className="relative z-10 max-w-3xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Reserve Your Table Today
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <span className="text-xs font-bold tracking-[0.5em] text-primary-500 mb-6 block uppercase">Reservations</span>
+          <h2 className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight">
+            Experience the Art of Dining
           </h2>
-          <p className="text-xl mb-10 text-gray-200">
-            Join us for an unforgettable dining experience. Book your table now and discover why we're the talk of the town.
+          <p className="text-xl mb-12 text-neutral-300 font-light max-w-2xl mx-auto tracking-wide">
+            Join us for an unforgettable culinary journey. Every dish tells a story of passion and excellence.
           </p>
           <a 
             href="/contact"
-            className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl"
+            className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-12 py-5 text-xs font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-primary-500/20"
           >
-            Make a Reservation
+            Book Your Experience
           </a>
-        </div>
-      </section>
-
-      {/* Bottom Info Section */}
-      <section className="bg-neutral-900 text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-serif mb-6">Hours of Operation</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-            <div>
-              <p className="font-semibold mb-2">Monday - Friday</p>
-              <p className="text-gray-400">11:30 AM - 10:00 PM</p>
-            </div>
-            <div>
-              <p className="font-semibold mb-2">Saturday - Sunday</p>
-              <p className="text-gray-400">10:00 AM - 11:00 PM</p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

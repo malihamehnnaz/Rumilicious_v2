@@ -29,12 +29,12 @@ export default function Navbar() {
   ];
 
   const isTransparent = !isScrolled && !isMobileMenuOpen;
-  const textColor = isTransparent ? 'text-white' : 'text-neutral-900';
+  const textColor = isTransparent ? 'text-white' : 'text-neutral-200';
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled || isMobileMenuOpen ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+        isScrolled || isMobileMenuOpen ? 'bg-dark/90 backdrop-blur-md shadow-2xl py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="container-custom">
@@ -43,7 +43,7 @@ export default function Navbar() {
             <img 
               src="/New folder/Rumilicious_Restaurant_logo.png" 
               alt="Rumilicious" 
-              className={`h-8 md:h-10 transition-all duration-300 ${!isTransparent ? 'invert' : ''}`} 
+              className={`h-8 md:h-10 transition-all duration-300`} 
             />
           </Link>
 
@@ -53,22 +53,22 @@ export default function Navbar() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`text-sm font-medium tracking-widest transition-all duration-300 hover:text-primary-600 relative group ${
-                    location.pathname === link.path ? 'text-primary-600' : textColor
+                  className={`text-xs font-bold tracking-[0.2em] transition-all duration-300 hover:text-primary-500 relative group ${
+                    location.pathname === link.path ? 'text-primary-500' : textColor
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
+                  <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
                 </Link>
               </li>
             ))}
             <li>
               <Link 
                 to="/contact" 
-                className={`px-6 py-2 border transition-all duration-300 text-sm font-medium tracking-widest ${
+                className={`px-8 py-2.5 border transition-all duration-300 text-xs font-bold tracking-[0.2em] rounded-full ${
                   isTransparent 
-                    ? 'border-white text-white hover:bg-white hover:text-neutral-900' 
-                    : 'border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white'
+                    ? 'border-white/30 text-white hover:bg-white hover:text-dark' 
+                    : 'border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white'
                 }`}
               >
                 RESERVE
@@ -102,17 +102,17 @@ export default function Navbar() {
 
         {/* Mobile Menu Overlay */}
         <div 
-          className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg transition-all duration-300 overflow-hidden ${
+          className={`md:hidden absolute top-full left-0 w-full bg-dark/95 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden ${
             isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="container-custom py-8 flex flex-col space-y-6 items-center">
+          <div className="container-custom py-12 flex flex-col space-y-8 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-lg font-medium tracking-widest transition-colors duration-300 hover:text-primary-600 ${
-                  location.pathname === link.path ? 'text-primary-600' : 'text-neutral-900'
+                className={`text-xl font-bold tracking-[0.2em] transition-colors duration-300 hover:text-primary-500 ${
+                  location.pathname === link.path ? 'text-primary-500' : 'text-neutral-200'
                 }`}
               >
                 {link.name}
@@ -120,7 +120,7 @@ export default function Navbar() {
             ))}
             <Link 
               to="/contact" 
-              className="px-8 py-3 bg-neutral-900 text-white text-sm font-medium tracking-widest hover:bg-primary-600 transition-colors w-full text-center"
+              className="px-10 py-4 bg-primary-500 text-white text-sm font-bold tracking-[0.2em] rounded-full hover:bg-primary-600 transition-all w-full text-center shadow-lg shadow-primary-500/20"
             >
               RESERVE A TABLE
             </Link>
