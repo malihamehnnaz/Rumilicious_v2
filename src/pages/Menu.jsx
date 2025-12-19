@@ -4,7 +4,7 @@ export default function Menu() {
       title: 'Breakfast Menu',
       layout: 'vertical',
       images: [
-        "https://images.unsplash.com/photo-1533089862017-5614ec87e284?w=800&q=80",
+        "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&q=80",
         "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80"
       ],
       items: [
